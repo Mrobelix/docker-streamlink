@@ -3,7 +3,7 @@ LABEL maintainer="admin@mrobelix.de"
 MAINTAINER mrobelix <admin@mrobelix.de>
 
 # Update System
-RUN apt-get update
+RUN apt-get update && apt-get install gosu
 
 # Get Streamlink
 ENV streamlinkVersion=2.2.0
