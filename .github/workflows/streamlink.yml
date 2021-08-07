@@ -6,9 +6,9 @@ name: Build and Push Docker Image
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ gha-init ]
   pull_request:
-    branches: [ main ]
+    branches: [ gha-init ]
   schedule:
     # Triggers the workflow monthly to keep image fresh with upstream base images
     - cron: '0 12 1 * *'
