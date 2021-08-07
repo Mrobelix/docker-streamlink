@@ -1,4 +1,5 @@
 FROM python:latest
+MAINTAINER Mrobelix <admin@mrobelix.de>
 
 # Environment
 ENV streamlinkVersion=2.3.0
