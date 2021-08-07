@@ -1,12 +1,13 @@
 FROM python:latest
-LABEL maintainer="admin@mrobelix.de"
-MAINTAINER mrobelix <admin@mrobelix.de>
+MAINTAINER Mrobelix <admin@mrobelix.de>
+
+# Environment
+ENV streamlinkVersion=2.3.0
 
 # Update System
 RUN apt-get update && apt-get install gosu
 
 # Get Streamlink
-ENV streamlinkVersion=2.3.0
 ADD https://github.com/streamlink/streamlink/releases/download/${streamlinkVersion}/streamlink-${streamlinkVersion}.tar.gz /opt/
 
 # Install Streamlink
