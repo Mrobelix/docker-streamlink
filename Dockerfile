@@ -6,7 +6,7 @@ MAINTAINER mrobelix <admin@mrobelix.de>
 RUN apt-get update && apt-get install gosu
 
 # Get Streamlink
-ENV streamlinkVersion=2.2.0
+ENV streamlinkVersion=2.3.0
 ADD https://github.com/streamlink/streamlink/releases/download/${streamlinkVersion}/streamlink-${streamlinkVersion}.tar.gz /opt/
 
 # Install Streamlink
