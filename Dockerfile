@@ -1,17 +1,13 @@
 FROM python:latest
 MAINTAINER Mrobelix <admin@mrobelix.de>
 
-# Environment
-ENV streamlinkVersion=2.3.0
-
 # Update System
 RUN apt-get update && apt-get install gosu
 
-# Get Streamlink
-ADD https://github.com/streamlink/streamlink/releases/download/${streamlinkVersion}/streamlink-${streamlinkVersion}.tar.gz /opt/
-
 # Install Streamlink
-RUN tar -xzf /opt/streamlink-${streamlinkVersion}.tar.gz -C /opt/ && \
+RUN streamlinkVersion=$(curl -s https://api.github.com/repos/streamlink/streamlink/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")') && \
+	wget -c https://github.com/streamlink/streamlink/releases/download/${streamlinkVersion}/streamlink-${streamlinkVersion}.tar.gz -P /opt && \
+	tar -xzf /opt/streamlink-${streamlinkVersion}.tar.gz -C /opt/ && \
 	rm /opt/streamlink-${streamlinkVersion}.tar.gz && \
 	cd /opt/streamlink-${streamlinkVersion}/ && \
 	python setup.py install
